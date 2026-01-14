@@ -1,0 +1,15 @@
+{
+  "displayName": "Random Stack Gallery",
+  "components": [
+    {
+      "name": "RandomStackGallery",
+      "manifest": "./src/components/RandomStackGallery/manifest.json"
+    }
+  ],
+  "author": "George Kariuki",
+  "description": "A component that displays images in a randomly stacked collage format, similar to a fashion moodboard or layered photo stack.",
+  "logo": "./example-logo.png",
+  "demoAppURL": "https://previewer.adalo.com/80a63530-7214-4c61-820d-9dd9f791cb5a",
+  "supportURL": "https://github.com/George-Kariuki/random-stack-gallery",
+  "requiresThirdPartySubscription": false
+}

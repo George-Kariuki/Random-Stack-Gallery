@@ -1,0 +1,119 @@
+{
+  "displayName": "Random Stack Gallery",
+  "defaultWidth": 320,
+  "defaultHeight": 400,
+  "resizeX": true,
+  "resizeY": true,
+  "icon": "./example-thumbnail.png",
+  "props": [
+    {
+      "name": "images",
+      "displayName": "What is this a list of?",
+      "type": "list"
+    },
+    {
+      "name": "image",
+      "displayName": "Image",
+      "role": "listItem",
+      "reference": "images",
+      "type": "image"
+    },
+    {
+      "name": "maxItems",
+      "displayName": "Max Items",
+      "type": "number",
+      "default": 5,
+      "control": {
+        "type": "slider",
+        "min": 1,
+        "max": 10
+      }
+    },
+    {
+      "name": "imageSize",
+      "displayName": "Image Size",
+      "type": "number",
+      "default": 60,
+      "control": {
+        "type": "slider",
+        "min": 30,
+        "max": 100
+      },
+      "helpText": "Percentage of container size (30-100%)"
+    }
+  ],
+  "childComponents": [
+    {
+      "name": "listEmptyState",
+      "displayName": "Empty State",
+      "props": [
+        {
+          "name": "emptyStateImageStatus",
+          "displayName": "Image",
+          "type": "text",
+          "default": "noImage",
+          "control": {
+            "type": "menu",
+            "options": [
+              { "label": "Above Title", "value": "above" },
+              { "label": "Below Title", "value": "below" },
+              { "label": "No Image", "value": "noImage" }
+            ]
+          }
+        },
+        {
+          "name": "imageSource",
+          "displayName": "Image Source",
+          "type": "image",
+          "enabled": {
+            "emptyStateImageStatus": ["above", "below"]
+          }
+        },
+        {
+          "name": "textTitleDisplay",
+          "displayName": "Text",
+          "type": "text",
+          "default": "titleOnly",
+          "control": {
+            "type": "menu",
+            "options": [
+              { "label": "Title Only", "value": "titleOnly" },
+              { "label": "Title and Subtitle", "value": "titleAndSubtitle" },
+              { "label": "No Text", "value": "noText" }
+            ]
+          }
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "text",
+          "default": "No Images",
+          "styles": {
+            "fontFamily": "@heading",
+            "fontWeight": "500",
+            "color": "@text",
+            "fontSize": "18"
+          },
+          "enabled": {
+            "textTitleDisplay": ["titleOnly", "titleAndSubtitle"]
+          }
+        },
+        {
+          "name": "subtitle",
+          "displayName": "Subtitle",
+          "type": "text",
+          "default": "Add images to see the gallery",
+          "styles": {
+            "fontFamily": "@body",
+            "color": "#212121",
+            "fontWeight": "400",
+            "fontSize": "16"
+          },
+          "enabled": {
+            "textTitleDisplay": "titleAndSubtitle"
+          }
+        }
+      ]
+    }
+  ]
+}
